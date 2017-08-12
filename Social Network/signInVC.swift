@@ -10,17 +10,24 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+import SwiftKeychainWrapper
 
 class signInVC: UIViewController {
+    
+    @IBOutlet weak var passwordTxtField: customTextField!
+    @IBOutlet weak var emailTxtField: customTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        }
     }
 
     @IBAction func fbBtnTapped(_ sender: Any) {
@@ -55,9 +62,54 @@ class signInVC: UIViewController {
                 
             } else {
                 print("Succesfully authenticated with firebase")
+                
+                if let user = user {
+                    
+                    self.signInComplete(id: user.uid)
+                }
             }
         }
     }
 
+    @IBAction func signInTapped(_ sender: Any) {
+        
+        if let email = emailTxtField.text, let pwd = passwordTxtField.text {
+            
+            Auth.auth().signIn(withEmail: email, password: pwd, completion: { (user, error) in
+                
+                if error == nil {
+                    print("JASON:  Email user authenticated with Firebase")
+                    if let user = user {
+                        
+                        self.signInComplete(id: user.uid)
+                    }
+                    
+                } else {
+                    
+                    Auth.auth().createUser(withEmail: email, password: pwd, completion: { (user, error) in
+                        
+                        if error != nil {
+                            print("JASON: Unable to authenticate with firebase using email")
+                            
+                        } else {
+                            print("JASON: Successfully authenticated with firebase")
+                            if let user = user {
+                                
+                                self.signInComplete(id: user.uid)
+                            }
+                        }
+                    })
+                }
+            })
+        }
+    }
+    
+    func signInComplete(id: String) {
+        
+        let keychaingResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("JASON: Data saved to keychain\(keychaingResult)")
+        performSegue(withIdentifier: "goToFeed", sender: nil)
+    }
+    
 }
 
