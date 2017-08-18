@@ -153,12 +153,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8X-HX-547" customClass="customView" customModule="Social_Network" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="z2k-8O-zZ6">
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="z2k-8O-zZ6">
                                         <rect key="frame" x="16" y="20" width="45" height="38"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="2Iv-xg-1ei"/>
                                             <constraint firstAttribute="width" constant="45" id="cVr-OD-x5j"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="c2P-N7-BNK" appends="YES" id="pVt-Ma-7av"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsK-nk-OrO">
                                         <rect key="frame" x="158" y="21" width="59.5" height="36"/>
@@ -229,13 +233,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CvQ-lg-cfE" customClass="customView" customModule="Social_Network" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="8" width="382" height="322.5"/>
+                                                    <rect key="frame" x="16" y="8" width="343" height="322.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="20g-p2-JR4">
-                                                            <rect key="frame" x="8" y="8" width="366" height="276.5"/>
+                                                            <rect key="frame" x="8" y="8" width="327" height="276.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-vZ-bA3">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="60"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="60"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="P2a-ce-E74" customClass="CircleView" customModule="Social_Network" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -245,13 +249,13 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameGoesHere" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex8-0q-h2E">
-                                                                            <rect key="frame" x="70" y="0.0" width="226" height="60"/>
+                                                                            <rect key="frame" x="70" y="0.0" width="187" height="60"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" red="0.93725490199999995" green="0.42352941179999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-heart" translatesAutoresizingMaskIntoConstraints="NO" id="kqD-4H-ceq">
-                                                                            <rect key="frame" x="306" y="0.0" width="60" height="60"/>
+                                                                            <rect key="frame" x="267" y="0.0" width="60" height="60"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="60" id="8dF-O3-0qO"/>
                                                                                 <constraint firstAttribute="height" constant="60" id="l7U-QQ-nsR"/>
@@ -260,10 +264,10 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Qfh-ve-1N9">
-                                                                    <rect key="frame" x="0.0" y="65" width="366" height="156.5"/>
+                                                                    <rect key="frame" x="0.0" y="65" width="327" height="156.5"/>
                                                                 </imageView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Lw-as-8pU">
-                                                                    <rect key="frame" x="0.0" y="226.5" width="366" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="226.5" width="327" height="50"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="GEt-VW-7hN"/>
@@ -275,7 +279,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Yc-rn-VHI">
-                                                            <rect key="frame" x="297.5" y="292.5" width="76.5" height="22"/>
+                                                            <rect key="frame" x="258.5" y="292.5" width="76.5" height="22"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oun-Ry-aSH">
                                                                     <rect key="frame" x="0.0" y="0.0" width="35.5" height="22"/>
@@ -342,6 +346,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SlI-st-fmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="c2P-N7-BNK">
+                    <connections>
+                        <action selector="signOutBtn:" destination="Tj7-kS-W4Y" id="l9k-os-czJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="740" y="38.23088455772114"/>
         </scene>
